@@ -27,8 +27,11 @@ Route::delete('/movies/{movie}/delete',[MoviesController::class,'delete'])->name
 
 
 //jegyfoglalás
-Route::get('/movies/{id}/show', [MoviesController::class, 'show'])->name('movies.jegyfoglalas');
-Route::post('/movies/{id}/store', [MoviesController::class, 'TicketStore'])->name('movies.jegyfoglalas.store');
+Route::get('/movies/{id}/show', [MoviesController::class, 'show'])->name('movies.show');
+Route::get('/movies/{id}/show', [MoviesController::class, 'show'])->name('movies.show');
+
+Route::post('/movies/{id}/store', [MoviesController::class, 'TicketStore'])->name('movies.ticket.store');
+
 
 
 

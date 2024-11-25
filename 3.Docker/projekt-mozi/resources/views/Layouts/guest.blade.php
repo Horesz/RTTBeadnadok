@@ -104,7 +104,7 @@
             <p class="card-int__title">{{ $movie->title }}</p>
             <p class="excerpt">{{ $movie->description }}</p>
             <p class="excerpt">Film hossza:  {{ $movie->duration }}</p>
-            <a href="{{ route('movies.jegyfoglalas', ['id' => $movie->id]) }}" class="card-int__button btn btn-primary">Jegyfoglalás</a>
+            <a href="{{ route('movies.show', ['id' => $movie->id]) }}" class="card-int__button btn btn-primary">Jegyfoglalás</a>
           </div>
         </div>
       </div>
