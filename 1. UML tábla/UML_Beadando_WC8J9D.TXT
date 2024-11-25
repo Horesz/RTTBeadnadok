@@ -1,0 +1,56 @@
+@startuml
+class Users {
+    + id: int
+    + name: string
+    + email: string
+    + email_verified_at: timestamp
+    + password: string
+    + remember_token: string
+    + created_at: timestamp
+    + updated_at: timestamp
+}
+
+class Seats {
+    + id: int
+    + vetiteseks_id: int
+    + seat_number: string
+    + is_reserved: boolean
+    + created_at: timestamp
+    + updated_at: timestamp
+}
+
+class Vetiteseks {
+    + id: int
+    + movie_id: int
+    + room_id: int
+    + start_time: timestamp
+    + end_time: timestamp
+}
+
+class Ticket_Orders {
+    + id: int
+    + email: string
+    + phone: string
+    + category: string
+    + movie_id: int
+    + room_id: int
+    + seat_number: string
+    + film_start: datetime
+    + created_at: timestamp
+    + updated_at: timestamp
+}
+
+class Ticket_Order_Seats {
+    + id: int
+    + ticket_order_id: int
+    + seat_number: int
+    + created_at: timestamp
+    + updated_at: timestamp
+}
+
+Users "1" --> "0..*" Ticket_Orders : rendel
+Seats "1" --> "1" Vetiteseks : tartozik
+Vetiteseks "1" --> "0..*" Ticket_Orders : foglalás
+Ticket_Orders "1" --> "0..*" Ticket_Order_Seats : tartalmaz
+Seats "1" --> "0..*" Ticket_Order_Seats : lefoglalva
+@enduml

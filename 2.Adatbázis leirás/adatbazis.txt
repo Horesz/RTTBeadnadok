@@ -1,0 +1,65 @@
+Table users {
+    id int [pk, increment]
+    name varchar
+    email varchar [unique]
+    email_verified_at datetime [null]
+    password varchar
+    remember_token varchar [null]
+    created_at datetime
+    updated_at datetime
+}
+
+Table movies {
+    id int [pk, increment]
+    title varchar
+    description text
+    duration int
+    release_date date
+    created_at datetime
+    updated_at datetime
+}
+
+Table rooms {
+    id int [pk, increment]
+    name varchar
+    capacity int
+    created_at datetime
+    updated_at datetime
+}
+
+Table screenings {
+    id int [pk, increment]
+    movie_id int [ref: > movies.id]
+    room_id int [ref: > rooms.id]
+    start_time datetime
+    end_time datetime
+    created_at datetime
+    updated_at datetime
+}
+
+Table seats {
+    id int [pk, increment]
+    screening_id int [ref: > screenings.id]
+    seat_number varchar
+    is_reserved boolean [default: false]
+    created_at datetime
+    updated_at datetime
+}
+
+Table ticket_orders {
+    id int [pk, increment]
+    user_id int [ref: > users.id]
+    screening_id int [ref: > screenings.id]
+    total_price decimal
+    order_date datetime
+    created_at datetime
+    updated_at datetime
+}
+
+Table ticket_order_seats {
+    id int [pk, increment]
+    ticket_order_id int [ref: > ticket_orders.id]
+    seat_id int [ref: > seats.id]
+    created_at datetime
+    updated_at datetime
+}
