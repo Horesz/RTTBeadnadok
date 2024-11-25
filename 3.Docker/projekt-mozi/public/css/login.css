@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Shanti&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Shanti", sans-serif;
+}
+:root {
+    --fidesz-color: orange;
+    --discordSzurke-color:#2C2F33;
+    --vilagosabbDiscorsSzürke-color:#4F545C;
+    --hatterSzinPiros:#FE2B25;
+
+}
+body{
+    background-color: var(--hatterSzinPiros);
+    justify-content: space-between;
+}
+#login__section{
+    background-color: var(--hatterSzinPiros);
+
+}
+#reg__szoveg{
+    color: white;
+}
+.side-bar_h1{
+    text-align: center;
+    font-weight: 25px;
+
+    padding-bottom: 13px;
+    font-family: "Shanti", sans-serif;
+    letter-spacing: 2;
+}
+.register_img{
+    max-width: 200px;
+}
+u{
+    padding-top: 1rem;
+    color: white;
+}

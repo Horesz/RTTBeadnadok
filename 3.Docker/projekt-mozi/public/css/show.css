@@ -1,0 +1,25 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: none;
+}
+
+.seat {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.seat.selected {
+    background-color: #c73cc7;
+}
+.mozikep{
+    max-width: 1px;
+}
+body{
+  overflow:-moz-hidden-unscrollable;
+}

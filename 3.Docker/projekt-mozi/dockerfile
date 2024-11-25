@@ -1,0 +1,33 @@
+FROM php:8.2-apache
+
+# Frissítsük a csomagokat és telepítsük a szükséges kiegészítőket
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    unzip \
+    libzip-dev \
+    php-cli \
+    && docker-php-ext-install zip
+
+# Composer telepítése
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Munka könyvtár beállítása
+WORKDIR /var/www/html
+
+# Apache jogosultságok beállítása
+RUN chown -R www-data:www-data /var/www/html
+
+
+# Első inditásos lépések/ujrainditás
+    # - docker-compose down
+    # - docker-compose build
+    # - docker-compose up -d
+
+# Bash belépés
+ # - docker exec -it laravel_app bash
+ # - php artisan migrate //ha magátol nem indulna (nekem kellett)
+ # - php artisan serve // ha nem indulna el
+
+# Végpont: Apache indítása
+CMD ["apache2-foreground"]
