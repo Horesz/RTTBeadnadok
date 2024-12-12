@@ -1,14 +1,14 @@
 describe('RTT beadando laravel docker project tesztelése', () => {
   Cypress.on('uncaught:exception', (err) => {
     if (err.message.includes('mdb is not defined') || err.message.includes('bootstrap is not defined')) {
-      return false; // nemm áll meg 
+      return false; 
     }
 
     if (err.message.includes("Cannot read properties of undefined")) {
-      return false; // nemm áll meg 
+      return false; 
     }
 
-    return true; // meg áll
+    return true;
   });
 
   it('allows a user to register successfully and add movies with file upload', () => {
@@ -19,8 +19,8 @@ describe('RTT beadando laravel docker project tesztelése', () => {
     cy.visit('http://localhost:8000/register');
 
     // 3. From kitöltése
-    cy.get('input[name="name"]').type('Teszt Felhasználó12'); 
-    cy.get('input[name="email"]').type('tesztfelhasznalo12@example.com'); 
+    cy.get('input[name="name"]').type('Teszt Felhasználó14'); 
+    cy.get('input[name="email"]').type('tesztfelhasznalo14@example.com'); 
     cy.get('input[name="password"]').type('TesztJelszo1234!'); 
     cy.get('input[name="password_confirmation"]').type('TesztJelszo1234!'); 
     cy.get('input[type="checkbox"]').check();
@@ -53,7 +53,7 @@ describe('RTT beadando laravel docker project tesztelése', () => {
     
     cy.get('button[type="submit"]').click();
  
-    // 8. Lépj a Filmek listájára
+    // 7. Lépj a Filmek listájára
     cy.visit('http://localhost:8000/movies');
     // irány a főoldal    
     cy.url().should('include', '/');
